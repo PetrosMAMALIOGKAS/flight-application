@@ -1,0 +1,19 @@
+site( *site_id, ville )
+pilote( *pilote_id, nom, #site )
+constructeur( *constructeur_id, nom_constructeur )
+avion( *avion_id, #constructeur, modele, capacite, #site )
+vol( *vol_id, #avion, #pilote, #ville_depart, #ville_arrive )
+piloter( *date_id, *#pilote_id, *#vol_id, date_depart, heure_depart, date_arriver, heure_arriver )
+----------------------------------------------------------------------------------
+
+* la cle primare de piloter est (date_id, pilote_id, vol_id)
+
+# site de pilote est une cle etranger et fai reference  à site
+# constructeur d avion est une cle etranger et fait reference à constructeur
+# site d avion est une cle etranger et fait reference à site
+# avion de vol est une cle etranger et fait reference à avion
+# pilote de vol est une cle etranger et fait reference à pilote
+# ville_depart de vol est une cle etranger et fait reference à site
+# ville_arriver de vol est une cle etranger et fait reference à site
+# pilote_id de piloter est une cle etranger et fait reference à pilote
+# vol_id de piloter est une cle etranger et fai reference à vol
