@@ -5,8 +5,8 @@ public class Vol {
 	private String vol_id;
 	private int avion;
 	private int pilote;
-	private int ville_depart;
-	private int ville_arriver;
+	private Site ville_depart;
+	private Site ville_arriver;
 
 	private Vol(Builder builder) {
 		this.vol_id = builder.vol_id;
@@ -44,21 +44,21 @@ public class Vol {
 	}
 
 
-	public int getVille_depart() {
+	public Site getVille_depart() {
 		return ville_depart;
 	}
 
 
-	public void setVille_depart(int ville_depart) {
+	public void setVille_depart(Site ville_depart) {
 		this.ville_depart = ville_depart;
 	}
 
 
-	public int getVille_arriver() {
+	public Site getVille_arriver() {
 		return ville_arriver;
 	}
 
-	public void setVille_arriver(int ville_arriver) {
+	public void setVille_arriver(Site ville_arriver) {
 		this.ville_arriver = ville_arriver;
 	}
 
@@ -67,8 +67,8 @@ public class Vol {
 		private String vol_id;
 		private int avion;
 		private int pilote;
-		private int ville_depart;
-		private int ville_arriver;
+		private Site ville_depart;
+		private Site ville_arriver;
 
 		public Builder vol_id(String vol_id) {
 			this.vol_id = vol_id;
@@ -85,12 +85,12 @@ public class Vol {
 			return this;
 		}
 
-		public Builder ville_depart(int ville_depart) {
+		public Builder ville_depart(Site ville_depart) {
 			this.ville_depart = ville_depart;
 			return this;
 		}
 
-		public Builder ville_arriver(int ville_arriver) {
+		public Builder ville_arriver(Site ville_arriver) {
 			this.ville_arriver = ville_arriver;
 			return this;
 		}

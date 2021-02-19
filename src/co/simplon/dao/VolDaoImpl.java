@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.simplon.model.Site;
 import co.simplon.model.Vol;
 
 public class VolDaoImpl implements VolDao {
@@ -18,31 +19,7 @@ public class VolDaoImpl implements VolDao {
 			this.daocontext = daocontext;
 		}
 		
-		@Override
-		public void ajouter(Vol vol) {
-			
-			Connection connection = null;
-			PreparedStatement preparedStatement = null;
-			String query = "INSERT INTO livre VALUES (null, ?,?,?);";
-			
-			try {
-				
-				connection = DaoContext.getConnection();
-				preparedStatement = connection.prepareStatement(query);
-			//	preparedStatement.setString(1, livre.getTitre());
-			//	preparedStatement.setInt(2, Integer.parseInt(livre.getAuteur().getId_auteur()));
-			//	preparedStatement.setInt(3, Integer.parseInt(livre.getGenre().getGenre_id()));
-				preparedStatement.executeUpdate();
-				connection.close();
-				
-			} catch (SQLException e) {
-				
-				
-				e.printStackTrace();
-				
-			}
-			
-		}
+	
 		
 		
 		@Override
@@ -65,8 +42,14 @@ public class VolDaoImpl implements VolDao {
 											.vol_id(result.getString(1))
 											.avion(result.getInt(2))
 											.pilote(result.getInt(3))
-											.ville_depart(result.getInt(4))
-											.ville_arriver(result.getInt(5))
+											.ville_depart(new Site.Builder()
+																  .site_id(result.getInt(4))
+																  .build()
+															)
+											.ville_arriver(new Site.Builder()
+																   .site_id(result.getInt(5))
+																   .build()
+															)
 											.build());  
 				}
 				
@@ -80,56 +63,40 @@ public class VolDaoImpl implements VolDao {
 			
 			return listVols;
 		}
+
+
+
+
+		@Override
+		public void ajouter(Vol vol) {
+			// TODO Auto-generated method stub
+			
+		}
+
+
+
+
+		@Override
+		public void modifier(Vol vol) {
+			// TODO Auto-generated method stub
+			
+		}
+
+
+
+
+		@Override
+		public void supprimerVolById(String vol_id) {
+			// TODO Auto-generated method stub
+			
+		}
 		
 		
 	 
 	
 	 
-		@Override
-		public void modifier(Vol vol) {
-			
-			Connection connection = null;
-			PreparedStatement preparedStatement = null;
-			String query = "UPDATE  livre SET titre = ?, auteur= ?, genre =? WHERE livre_id = ?;";
-			
-			try {
-				
-				connection = DaoContext.getConnection();
-				preparedStatement = connection.prepareStatement(query);
-			//	preparedStatement.setInt(4, Integer.parseInt(livre.getId()));
-			//	preparedStatement.setString(1, livre.getTitre());
-			//	preparedStatement.setInt(2, Integer.parseInt(livre.getAuteur().getId_auteur()));
-			//	preparedStatement.setInt(3, Integer.parseInt(livre.getGenre().getGenre_id()));
-				preparedStatement.executeUpdate();
-				connection.close();
-				
-			} catch (SQLException e) {
-				
-				e.printStackTrace();
-				
-			}
-		}
-	 
-		@Override
-		public void supprimerVolById(String vol_id) {
-			
-			Connection connection = null;
-			PreparedStatement preparedStatement = null;
-			String query = "DELETE FROM livre WHERE livre_id = ?;";
-			
-			try {
-				connection = DaoContext.getConnection();
-				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setInt(1, Integer.parseInt(vol_id));
-				preparedStatement.executeUpdate();
-				connection.close();
-			} catch (SQLException e) {
-				
-				e.printStackTrace();
-				
-			}
-
-		}
+	
+	
 
 		
 	

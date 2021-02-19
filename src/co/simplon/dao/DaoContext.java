@@ -24,5 +24,11 @@ private static Connection conn;
 		return new VolDaoImpl(this);
 		
 	}
+	
+	public SiteDao getSiteDao() {
+		
+		return new SiteDaoImpl(this);
+		
+	}
 
 }

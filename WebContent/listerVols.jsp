@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -23,16 +23,12 @@
 		<c:forEach var="vol" items="${listVols}">
 
 			<tr>
-				<td><c:out value="${vol.getVol_id()}" />" /></td>
-				<td><c:out value="${vol.getAvion()}" />" /></td>
-				<td><c:out value="${vol.getPilote()}" />" /></td>
-				<td><c:out value="${vol.getVille_depart()}" />" /></td>
-				<td><c:out value="${vol.getVille_arriver()}" />" /></td>
+				<td><c:out value="${vol.getVol_id()}"  /></td>
+				<td><c:out value="${vol.getAvion()}"  /></td>
+				<td><c:out value="${vol.getPilote()}"  /></td>
+				<td><c:out value="${vol.getVille_depart().getVille()}"  /></td>
+				<td><c:out value="${vol.getVille_arriver().getVille()}"  /></td>
 				
-			<!-- 
-				<td><input type="radio" name="livre_id" id="livre-<%= counter %>" value="<c:out value="${livres.getId()}" />" /></td>
-				<td><label for="livre-<%= counter %>"><c:out value="${livres.getTitre()}" /></label></td>
-				 -->
 			</tr>
 		
 		</c:forEach>

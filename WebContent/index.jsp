@@ -10,8 +10,11 @@
 	<h3>Bienvenu</h3>
 	
 	<form method="get" action="Control">
-		<input name="action" value="lister" type="hidden" />
-		<input type="submit" value="clicker pour entrer" />
+		<label for="lister">Lister des vols :</label>
+		<input type="submit" id="lister" name="execute" value="lister" /><br/>
+		<label for="ajouter-site">Ajouter un site de depart/arriver :</label>
+		<input type="submit" id="ajouter-site" name="execute" value="ajouterSite" /><br/>
+		<label for="gestion">Gestion des vols :</label>
 	</form>
 </body>
 </html>
